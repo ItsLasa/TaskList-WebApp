@@ -14,13 +14,13 @@ function Head() {
      <TaskArea/>
      <FooterBar/>
 
-     <Toaster
+     {/* <Toaster
      toastOptions={{
       style:{
         padding:'15px',
       }
      }}
-     />
+     /> */}
     
     </div>
   )
