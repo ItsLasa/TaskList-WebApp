@@ -52,6 +52,11 @@ function FooterBar(props) {
     }
   }
 
+  useEffect(()=>{
+    itemsLeftCounterFunction();
+
+  },[allTasks])
+
   return (
     <div className="ml-2 mr-3 flex justify-between items-center mt-6 gap-6 text-[12px] p-1">
       <div className="flex gap-2 items-center justify-center">
@@ -60,7 +65,9 @@ function FooterBar(props) {
       </div>
       <div
         className="text-blue-500 text-[17px] transition-all duration-100 hover:font-semibold select-none cursor-pointer"
-        onClick={clearAllTasks}
+        onClick={()=>{
+          clearAllTasks();
+        }}
       >
         Clear All Tasks
       </div>

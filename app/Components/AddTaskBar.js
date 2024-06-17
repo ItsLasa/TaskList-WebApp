@@ -48,7 +48,7 @@ function AddTaskBar(props) {
 
       <button
         className='bg-gradient-to-r text-white rounded-md w-[120px] from-blue-700 to-blue-400 hover:text-black hover:text-light'
-        onClick={addTaskBtn}
+        onClick={addTaskBtn} 
       >
         Add a task
       </button>
