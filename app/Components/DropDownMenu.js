@@ -5,7 +5,7 @@ import { MdOutlineEdit,MdOutlineDeleteOutline  } from "react-icons/md";
 import { useContextProvider } from '../ContextApi';
 
 function DropDownMenu(props) {
-   const {openDropDownMenu,setOpenDropDownMenu}=useContextProvider();
+   const {openDropDownMenu,setOpenDropDownMenu,selectedTask,SetOpenEditModel}=useContextProvider();
    const dropDownRef=useRef(null);
 
     useEffect(()=>{
@@ -20,6 +20,16 @@ function DropDownMenu(props) {
       };
 
    },[openDropDownMenu]);
+
+   function clickedItemMenu(menuItem){
+    if(menuItem.name==='Delete'){
+      console.log('do you want to delete',selectedTask);
+    }
+    if(menuItem.name==='Modify'){
+      SetOpenEditModel(true);
+      setOpenDropDownMenu(false);
+    }
+   }
   return (
     <div
     ref={dropDownRef}
