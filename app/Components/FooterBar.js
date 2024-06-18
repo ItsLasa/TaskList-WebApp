@@ -64,7 +64,7 @@ function FooterBar(props) {
         <div className="font-light text-[15px]">Items Left</div>
       </div>
       <div
-        className="text-blue-500 text-[17px] transition-all duration-100 hover:font-semibold select-none cursor-pointer"
+        className="text-blue-500 text-[17px] transition-all duration-100 hover:font-semibold hover:scale-105 select-none cursor-pointer"
         onClick={()=>{
           clearAllTasks();
         }}
