@@ -5,6 +5,16 @@ const GlobalContext = createContext();
 
 export default function ContextProvider({ children }) {
   const [allTasks, setAllTasks] = useState([]);
+  const [openDropDownMenu,setOpenDropDownMenu]=useState(false);
+  // const [dropDownMenuPosition,setdropDownMenuPosition]=useState({
+  //   x:0,
+  //   y:0,
+  // });
+  
+
+  const [selectedTask,setSelectedTask]=useState(null);
+  const [openEditModel,SetOpenEditModel]=useState(false);
+  
 
   useEffect(() => {
     const data = [
@@ -17,7 +27,7 @@ export default function ContextProvider({ children }) {
   }, []);
 
   return (
-    <GlobalContext.Provider value={{ allTasks, setAllTasks }}>
+    <GlobalContext.Provider value={{ allTasks, setAllTasks,openDropDownMenu,setOpenDropDownMenu,selectedTask,setSelectedTask,openEditModel,SetOpenEditModel }}>
       {children}
     </GlobalContext.Provider>
   );
