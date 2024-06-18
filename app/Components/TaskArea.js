@@ -5,9 +5,8 @@ import { HiDotsVertical } from 'react-icons/hi';
 import { useContextProvider } from '../ContextApi';
 
 function TaskArea(props) {
-  const { allTasks, setAllTasks } = useContextProvider();
-
-  const handleCheckedBox = (task) => {
+  const { allTasks, setAllTasks,openDropDownMenu,setOpenDropDownMenu } = useContextProvider();
+  function handleCheckedBox  (task)  {
     // copying the all task array
     const tempArray = [...allTasks];
 
@@ -15,14 +14,22 @@ function TaskArea(props) {
     const taskIndex = tempArray.indexOf(task);
 
     // change the check state
-    if (taskIndex > -1) {
+  
       tempArray[taskIndex].isChecked = !tempArray[taskIndex].isChecked;
 
       // updating the variable all tasks
       setAllTasks(tempArray);
-    }
+    
   };
 
+  function openDropDownFx(event){
+    if(event){
+      event.stopPropagation();
+    }
+    setOpenDropDownMenu(true);
+  }
+
+  
   return (
     <div className='ml-3 mr-3 h-56 mt-3 flex flex-col overflow-auto gap-1'>
       {allTasks.map((task) => (
@@ -34,10 +41,35 @@ function TaskArea(props) {
 
 export default TaskArea;
 
-function SingleTask({ task, handleCheckedBox }) {
+function SingleTask({key,task }) {
+  const { allTasks, setAllTasks,openDropDownMenu,setOpenDropDownMenu } = useContextProvider();
+
+  function handleCheckedBox  (task)  {
+    // copying the all task array
+    const tempArray = [...allTasks];
+
+    // getting the index of the task we clicked on
+    const taskIndex = tempArray.indexOf(task);
+
+    // change the check state
+  
+      tempArray[taskIndex].isChecked = !tempArray[taskIndex].isChecked;
+
+      // updating the variable all tasks
+      setAllTasks(tempArray);
+    
+  };
+
+  function openDropDownFx(event){
+    if(event){
+      event.stopPropagation();
+    }
+    setOpenDropDownMenu(true);
+  }
+
   return (
     <div
-      key={task._id}
+      key={key}
       className={`border text-[14px] px-4 items-center border-gray-300 
         p-1 rounded-xl shadow-sm flex gap-2 justify-between ${task.isChecked ? 'opacity-50' : ''}`}
     >
@@ -58,8 +90,10 @@ function SingleTask({ task, handleCheckedBox }) {
       <div className={`text-left w-full font-dm text-lg ${task.isChecked ? 'line-through font-medium' : ''}`}>
         {task.name}
       </div>
-      <div className='hover:p-2 cursor-pointer hover:bg-blue-100 hover:rounded-full'>
-        <HiDotsVertical />
+      <div className=' cursor-pointer transition-all duration-300 hover:scale-150 hover:rotate-90'>
+        <HiDotsVertical onClick={(event)=>{
+          openDropDownFx(event);
+        }} />
       </div>
     </div>
   );
