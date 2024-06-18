@@ -27,7 +27,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "app/Components/FooterBar.js"  ],
+, "app/Components/FooterBar.js", "app/Components/DropDownMenu.js"  ],
   "exclude": [
     "node_modules"
   ]
