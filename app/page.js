@@ -6,11 +6,12 @@ import ContextProvider from './ContextApi'
 import { Toaster } from "react-hot-toast";
 export default function Home() {
   return (
-   <div className="flex w-full h-svh justify-center items-center">
+   <div className="flex items-center justify-center w-full h-svh ">
     <ContextProvider>
        <Head/>
-       </ContextProvider>
        <DropDownMenu/>
+       </ContextProvider>
+     
        
        <Toaster/>
    </div>
