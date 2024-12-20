@@ -13,10 +13,10 @@
 
 ### Tech Stack
 
--   **Frontend**: React.js, Next.js
+-   **Frontend**: React.js
 -   **Styling**: Tailwind CSS, MUI (Material-UI)
--   **Backend**: Node.js, Express.js (if applicable)
--   **Database**: MongoDB (if applicable)
+-   **Backend**: Node.js, Express.js 
+-   **Database**: MongoDB 
 -   **State Management**: Context API
 -   **Icons**: React Icons
 -   **Notifications**: react-hot-toast
